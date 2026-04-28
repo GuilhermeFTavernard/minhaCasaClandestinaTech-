@@ -7,12 +7,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class Venda {
+
+    // Atributos
     private int idVenda;
     private LocalDate dataVenda;
     private BigDecimal valorTotal;
     private Cliente cliente;
     private List<ItemVenda> itensVenda; // Renomeado para maior clareza
 
+    // Construtor
     public Venda(int idVenda, Cliente cliente) {
         this.idVenda = idVenda;
         this.cliente = cliente;
@@ -21,6 +24,7 @@ public class Venda {
         this.itensVenda = new ArrayList<>();
     }
 
+    // Metodos
     public void adicionarItemDeVenda(ItemVenda item) {
         if (item != null) {
             this.itensVenda.add(item);

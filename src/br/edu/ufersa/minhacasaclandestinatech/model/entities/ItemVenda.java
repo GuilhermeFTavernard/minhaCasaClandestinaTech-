@@ -3,10 +3,13 @@ package br.edu.ufersa.minhacasaclandestinatech.model.entities;
 import java.math.BigDecimal;
 
 public class ItemVenda {
+
+    // Atributos
     private int quantidade;
     private BigDecimal precoUnitario;
     private Equipamento equipamento;
 
+    // Construtor
     public ItemVenda(int quantidade, BigDecimal precoUnitario, Equipamento equipamento) {
         if (quantidade <= 0) {
             throw new IllegalArgumentException("A quantidade deve ser maior que zero.");

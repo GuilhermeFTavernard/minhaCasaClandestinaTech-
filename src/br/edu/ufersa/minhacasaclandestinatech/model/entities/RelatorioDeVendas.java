@@ -6,8 +6,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RelatorioDeVendas {
+
+    // Atributos
     private List<Venda> baseDeVendas;
 
+    // Construtor
     public RelatorioDeVendas(List<Venda> baseDeVendas) {
         this.baseDeVendas = baseDeVendas;
     }
