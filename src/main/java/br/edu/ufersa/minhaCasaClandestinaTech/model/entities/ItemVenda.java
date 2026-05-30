@@ -1,4 +1,4 @@
-package br.edu.ufersa.minhacasaclandestinatech.model.entities;
+package br.edu.ufersa.minhaCasaClandestinaTech.model.entities;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package br.edu.ufersa.minhacasaclandestinatech.model.entities;
+package br.edu.ufersa.minhaCasaClandestinaTech.model.entities;
 
 public class Usuario {
 
@@ -17,11 +17,11 @@ public class Usuario {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(int idUsuario) throws RuntimeException{
         if(idUsuario >= 0){
             this.idUsuario = idUsuario;
         } else {
-            System.out.println("O número do Id tem que ser positivo!");
+            throw new RuntimeException("O número do Id tem que ser positivo!");
         }
     }
 
@@ -29,11 +29,11 @@ public class Usuario {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) throws RuntimeException{
         if(email != null && email.contains("@") && email.contains(".")){
             this.email = email;
         } else {
-            System.out.println("Digite algum email!");
+            throw new RuntimeException("Digite algum email!");
         }
     }
 
@@ -41,15 +41,18 @@ public class Usuario {
         return senha;
     }
 
-    public void setSenha(String senha) {
+    public void setSenha(String senha) throws RuntimeException{
         if(senha != null) {
             this.senha = senha;
         } else {
-            System.out.println("Alguma senha!");
+            throw new RuntimeException("Alguma senha!");
         }
     }
 
-    // Método Logar
+
+
+
+    //Método Logar
     public void logar(String email, String senha){
         if(this.email.equals(email) && this.senha.equals(senha)){
             System.out.println("Login realizado com sucesso!");

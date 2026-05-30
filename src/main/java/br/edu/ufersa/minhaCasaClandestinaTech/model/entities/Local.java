@@ -1,7 +1,8 @@
-package br.edu.ufersa.minhacasaclandestinatech.model.entities;
+package br.edu.ufersa.minhaCasaClandestinaTech.model.entities;
 
 public class Local {
 
+    private int idLocal;
     private String nomeCasa;
     private String nomeCompartimento;
 
@@ -12,6 +13,9 @@ public class Local {
     }
 
     // Getters
+
+    public int getIdLocal() { return idLocal; }
+
     public String getNomeCasa() {
         return nomeCasa;
     }
@@ -21,21 +25,29 @@ public class Local {
     }
 
     // Setters
-    public void setNomeCasa(String nomeCasa) {
+
+    public void setIdLocal(int idLocal) {
+        if (idLocal > 0) this.idLocal = idLocal;
+        else throw new RuntimeException("Id inválido!");
+    }
+
+    public void setNomeCasa(String nomeCasa) throws RuntimeException{
         if (nomeCasa != null ){
             this.nomeCasa = nomeCasa;
         } else {
-            System.out.println("Nome da casa inválido!");
+            throw new RuntimeException("Nome da casa inválido!");
         }
     }
 
-    public void setNomeCompartimento(String nomeCompartimento) {
+    public void setNomeCompartimento(String nomeCompartimento) throws RuntimeException{
         if (nomeCompartimento != null ){
             this.nomeCompartimento = nomeCompartimento;
         } else {
-            System.out.println("Informe um compartimento válido!");
+            throw new RuntimeException("Informe um compartimento válido!");
         }
     }
+
+    //método
 
     // Editar
     public void editarLocal(String novoNomeCasa, String novoNomeCompartimento){

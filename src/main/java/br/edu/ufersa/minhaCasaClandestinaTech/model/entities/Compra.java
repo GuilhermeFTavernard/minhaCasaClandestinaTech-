@@ -1,4 +1,4 @@
-package br.edu.ufersa.minhacasaclandestinatech.model.entities;
+package br.edu.ufersa.minhaCasaClandestinaTech.model.entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,11 +25,11 @@ public class Compra {
         return idCompra;
     }
 
-    public void setIdCompra(int idCompra) {
+    public void setIdCompra(int idCompra) throws RuntimeException{
         if(idCompra > 0){
             this.idCompra = idCompra;
         }else{
-            System.out.println("Digite o idCompra");
+            throw new RuntimeException("Digite o idCompra");
         }
         
     }
@@ -38,11 +38,11 @@ public class Compra {
         return dataCompra;
     }
 
-    public void setDataCompra(LocalDate dataCompra) {
+    public void setDataCompra(LocalDate dataCompra) throws RuntimeException{
         if(dataCompra != null){
             this.dataCompra = dataCompra;
         }else{
-            System.out.println("Digite uma data");
+            throw new RuntimeException("Digite uma data");
         }
         
     }
@@ -51,11 +51,11 @@ public class Compra {
         return fornecedor;
     }
 
-    public void setFornecedor(String fornecedor) {
+    public void setFornecedor(String fornecedor) throws RuntimeException{
         if(fornecedor != null){
             this.fornecedor = fornecedor;
         }else{
-            System.out.println("Digite o fornecedor");
+            throw new RuntimeException("Digite o fornecedor");
         }
         
     }
