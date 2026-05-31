@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 public class ItemVenda {
 
     // Atributos
+    private int idItemVenda;
+    private int idVenda;
     private int quantidade;
     private BigDecimal precoUnitario;
     private Equipamento equipamento;
@@ -25,7 +27,16 @@ public class ItemVenda {
     }
 
     // Getters
+    public int getIdItemVenda() { return idItemVenda; }
+    public int getIdVenda() { return idVenda; }
     public int getQuantidade() { return quantidade; }
     public BigDecimal getPrecoUnitario() { return precoUnitario; }
     public Equipamento getEquipamento() { return equipamento; }
+
+    // Setters
+    public void setIdItemVenda(int idItemVenda) { this.idItemVenda = idItemVenda; }
+    public void setIdVenda(int idVenda) { this.idVenda = idVenda; }
+    public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
+    public void setPrecoUnitario(BigDecimal precoUnitario) { this.precoUnitario = precoUnitario; }
+    public void setEquipamento(Equipamento equipamento) { this.equipamento = equipamento; }
 }
