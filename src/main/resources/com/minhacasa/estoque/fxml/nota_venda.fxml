@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.minhacasa.estoque.controller.NotaVendaController"
+      styleClass="modal-card" spacing="16">
+
+    <HBox alignment="CENTER_LEFT">
+        <Label fx:id="titleLabel" text="Nota de Venda" styleClass="modal-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="✕" styleClass="modal-close-btn" onAction="#onFechar"/>
+    </HBox>
+
+    <VBox fx:id="receiptBox" styleClass="receipt-box" spacing="14">
+
+        <VBox alignment="CENTER" spacing="2">
+            <Label text="minhaCasaClandestinaTech" styleClass="receipt-title"/>
+            <Label text="NOTA DE VENDA" styleClass="receipt-subtitle"/>
+        </VBox>
+
+        <HBox alignment="CENTER_LEFT">
+            <VBox spacing="2">
+                <Label text="DATA:" styleClass="receipt-label"/>
+                <Label fx:id="dataLabel" styleClass="receipt-value"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <VBox spacing="2" alignment="CENTER_RIGHT">
+                <Label text="Nº:" styleClass="receipt-label"/>
+                <Label fx:id="numeroLabel" styleClass="receipt-value"/>
+            </VBox>
+        </HBox>
+
+        <VBox spacing="2">
+            <Label text="CLIENTE:" styleClass="receipt-label"/>
+            <Label fx:id="clienteLabel" styleClass="receipt-value"/>
+        </VBox>
+
+        <VBox spacing="2">
+            <Label text="CPF:" styleClass="receipt-label"/>
+            <Label fx:id="cpfLabel" styleClass="receipt-value"/>
+        </VBox>
+
+        <VBox fx:id="itensBox" spacing="8" styleClass="modal-divider" style="-fx-padding: 10 0 10 0;"/>
+
+        <HBox alignment="CENTER_LEFT" styleClass="modal-divider" style="-fx-padding: 0 0 10 0;">
+            <Label text="TOTAL" styleClass="receipt-total-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="totalLabel" styleClass="receipt-total-label"/>
+        </HBox>
+
+        <Label fx:id="statusLabel" styleClass="receipt-label" maxWidth="Infinity" alignment="CENTER" style="-fx-alignment: center;"/>
+    </VBox>
+
+    <HBox alignment="CENTER_RIGHT">
+        <Button text="🖨 Imprimir" styleClass="btn-secondary" onAction="#onImprimir"/>
+    </HBox>
+
+</VBox>
