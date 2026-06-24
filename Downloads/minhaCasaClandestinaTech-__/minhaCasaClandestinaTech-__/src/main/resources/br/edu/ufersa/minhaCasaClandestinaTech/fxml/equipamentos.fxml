@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="br.edu.ufersa.minhaCasaClandestinaTech.controller.EquipamentoController"
+      styleClass="view-padding">
+
+    <HBox alignment="CENTER_LEFT">
+        <VBox spacing="2">
+            <Label text="Equipamentos" styleClass="section-title" style="-fx-font-size: 19px;"/>
+            <Label fx:id="subtitleLabel" styleClass="section-subtitle"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="+ Novo" styleClass="btn-primary" onAction="#onNovo"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Pesquisar..." styleClass="search-field" HBox.hgrow="ALWAYS"/>
+        <HBox spacing="0">
+            <ToggleButton fx:id="filtroNome" text="Nome" styleClass="toggle-filter" selected="true"/>
+            <ToggleButton fx:id="filtroSerie" text="Nº Série" styleClass="toggle-filter"/>
+            <ToggleButton fx:id="filtroResponsavel" text="Responsável" styleClass="toggle-filter"/>
+            <ToggleButton fx:id="filtroLocal" text="Local" styleClass="toggle-filter"/>
+        </HBox>
+    </HBox>
+
+    <TableView fx:id="tabela" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colNome" text="NOME" prefWidth="190"/>
+            <TableColumn fx:id="colSerie" text="Nº SÉRIE" prefWidth="130"/>
+            <TableColumn fx:id="colPreco" text="PREÇO" prefWidth="100"/>
+            <TableColumn fx:id="colQtd" text="QTD" prefWidth="70"/>
+            <TableColumn fx:id="colLocal" text="LOCAL" prefWidth="210"/>
+            <TableColumn fx:id="colResponsavel" text="RESPONSÁVEL" prefWidth="140"/>
+            <TableColumn fx:id="colAcoes" text="" prefWidth="90"/>
+        </columns>
+    </TableView>
+
+</VBox>

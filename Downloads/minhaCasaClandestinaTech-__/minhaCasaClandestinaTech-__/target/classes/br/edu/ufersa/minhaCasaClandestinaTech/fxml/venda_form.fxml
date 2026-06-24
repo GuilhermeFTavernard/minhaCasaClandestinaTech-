@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="br.edu.ufersa.minhaCasaClandestinaTech.controller.VendaFormController"
+      styleClass="modal-card, modal-card-wide" spacing="16">
+
+    <HBox alignment="CENTER_LEFT">
+        <Label fx:id="titleLabel" text="Nova Venda" styleClass="modal-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="✕" styleClass="modal-close-btn" onAction="#onCancelar"/>
+    </HBox>
+
+    <HBox spacing="14">
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="CLIENTE *" styleClass="form-label"/>
+            <ComboBox fx:id="clienteCombo" maxWidth="Infinity" promptText="Selecione..."/>
+        </VBox>
+        <VBox spacing="5">
+            <Label text="DATA *" styleClass="form-label"/>
+            <DatePicker fx:id="dataPicker"/>
+        </VBox>
+    </HBox>
+
+    <VBox spacing="8" styleClass="modal-divider">
+        <Label text="Itens da Venda" styleClass="section-title" style="-fx-font-size: 13px;"/>
+
+        <HBox spacing="10" alignment="BOTTOM_LEFT">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="EQUIPAMENTO" styleClass="form-label"/>
+                <ComboBox fx:id="equipamentoCombo" maxWidth="Infinity" promptText="Selecione..."/>
+            </VBox>
+            <VBox spacing="5">
+                <Label text="QTD" styleClass="form-label"/>
+                <TextField fx:id="quantidadeField" styleClass="text-field" promptText="1" prefWidth="70"/>
+            </VBox>
+            <Button text="+ Adicionar" styleClass="btn-secondary" onAction="#onAdicionarItem"/>
+        </HBox>
+
+        <ListView fx:id="itensListView" prefHeight="150" styleClass="text-field"/>
+
+        <HBox alignment="CENTER_RIGHT">
+            <Label fx:id="totalLabel" text="Total: R$ 0,00" styleClass="receipt-total-label"/>
+        </HBox>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" styleClass="btn-link" onAction="#onCancelar"/>
+        <Button text="✓ Salvar" styleClass="btn-primary" onAction="#onSalvar"/>
+    </HBox>
+
+</VBox>
