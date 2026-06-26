@@ -10,7 +10,7 @@ public class ConnectionFactory {
             "jdbc:mysql://localhost:3306/minha_casa_clandestina";
 
     private static final String USER = "root";
-    private static final String PASS = "";
+    private static final String PASS = "guilherme95";
 
     // única instância da classe
     private static ConnectionFactory instance;

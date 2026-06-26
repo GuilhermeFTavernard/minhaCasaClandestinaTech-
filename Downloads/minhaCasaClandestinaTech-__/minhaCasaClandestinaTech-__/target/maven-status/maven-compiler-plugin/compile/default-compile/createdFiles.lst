@@ -3,6 +3,7 @@ br\edu\ufersa\minhaCasaClandestinaTech\controller\ClientesController$1.class
 br\edu\ufersa\minhaCasaClandestinaTech\controller\CompraFormController$1.class
 br\edu\ufersa\minhaCasaClandestinaTech\model\service\ClienteService.class
 br\edu\ufersa\minhaCasaClandestinaTech\controller\LocaisController$1.class
+br\edu\ufersa\minhaCasaClandestinaTech\model\entities\Pessoa.class
 br\edu\ufersa\minhaCasaClandestinaTech\model\service\ItemCompraService.class
 br\edu\ufersa\minhaCasaClandestinaTech\model\entities\StatusVenda.class
 br\edu\ufersa\minhaCasaClandestinaTech\model\entities\ItemVenda.class
