@@ -19,6 +19,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
+import br.edu.ufersa.minhaCasaClandestinaTech.model.strategy.EstrategiaBusca;
+import br.edu.ufersa.minhaCasaClandestinaTech.model.strategy.EstrategiasBusca;
 
 public class EquipamentoController {
 
@@ -40,6 +42,8 @@ public class EquipamentoController {
 
     private final EquipamentoService equipamentoService = new EquipamentoService();
     private FilteredList<Equipamento> filteredList;
+
+    private EstrategiaBusca estrategiaAtual = EstrategiasBusca.POR_NOME;
 
     @FXML
     public void initialize() {
@@ -122,7 +126,11 @@ public class EquipamentoController {
         carregarEquipamentos();
 
         searchField.textProperty().addListener((obs, oldV, newV) -> aplicarFiltro());
-        grupo.selectedToggleProperty().addListener((obs, oldV, newV) -> aplicarFiltro());
+
+        grupo.selectedToggleProperty().addListener((obs, oldV, newV) -> {
+            estrategiaAtual = resolverEstrategia();
+            aplicarFiltro();
+        });
     }
 
     private void carregarEquipamentos() {
@@ -135,29 +143,22 @@ public class EquipamentoController {
         atualizarSubtitulo();
     }
 
+    // DEPOIS
+    private EstrategiaBusca resolverEstrategia() {
+        if (filtroSerie.isSelected())       return EstrategiasBusca.POR_SERIE;
+        if (filtroResponsavel.isSelected()) return EstrategiasBusca.POR_RESPONSAVEL;
+        if (filtroLocal.isSelected())       return EstrategiasBusca.POR_LOCAL;
+        return EstrategiasBusca.POR_NOME;
+    }
+
     private void aplicarFiltro() {
         String termo = searchField.getText() == null
                 ? ""
                 : searchField.getText().trim().toLowerCase();
 
         filteredList.setPredicate(eq -> {
-            if (termo.isEmpty()) {
-                return true;
-            }
-
-            if (filtroSerie.isSelected()) {
-                return String.valueOf(eq.getNumeroSerie()).contains(termo);
-            }
-
-            if (filtroResponsavel.isSelected()) {
-                return false;
-            }
-
-            if (filtroLocal.isSelected()) {
-                return false;
-            }
-
-            return eq.getNome() != null && eq.getNome().toLowerCase().contains(termo);
+            if (termo.isEmpty()) return true;
+            return estrategiaAtual.corresponde(eq, termo);
         });
 
         atualizarSubtitulo();

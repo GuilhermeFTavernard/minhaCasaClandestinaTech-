@@ -27,6 +27,10 @@ public class Local {
 
     public Responsavel getResponsavel() { return responsavel; }
 
+    public String getDescricao() {
+        return nomeCasa + " / " + nomeCompartimento;
+    }
+
     // Setters
 
     public void setIdLocal(int idLocal) {
