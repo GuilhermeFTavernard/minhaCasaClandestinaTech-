@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="br.edu.ufersa.minhaCasaClandestinaTech.controller.RelatoriosController"
+      styleClass="view-padding">
+
+    <Label text="Relatórios" styleClass="section-title" style="-fx-font-size: 19px;"/>
+
+    <HBox spacing="0">
+        <ToggleButton fx:id="tabVendas" text="Vendas Por Período" styleClass="tab-toggle" selected="true"/>
+        <ToggleButton fx:id="tabEstoque" text="Relatório De Estoque" styleClass="tab-toggle"/>
+    </HBox>
+
+    <!-- ===================== ABA: VENDAS POR PERIODO ===================== -->
+    <VBox fx:id="painelVendas" spacing="18">
+
+        <HBox styleClass="card" spacing="24" alignment="CENTER_LEFT">
+            <VBox spacing="5">
+                <Label text="DE" styleClass="form-label"/>
+                <DatePicker fx:id="dataDePicker"/>
+            </VBox>
+            <VBox spacing="5">
+                <Label text="ATÉ" styleClass="form-label"/>
+                <DatePicker fx:id="dataAtePicker"/>
+            </VBox>
+        </HBox>
+
+        <HBox spacing="18">
+            <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS">
+                <Label fx:id="vendasPeriodoLabel" styleClass="stat-number"/>
+                <Label text="Vendas no Período" styleClass="stat-label"/>
+                <Label text="transações ativas" styleClass="stat-sublabel"/>
+            </VBox>
+            <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS">
+                <Label fx:id="itensVendidosLabel" styleClass="stat-number"/>
+                <Label text="Itens Vendidos" styleClass="stat-label"/>
+                <Label text="unidades" styleClass="stat-sublabel"/>
+            </VBox>
+            <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS">
+                <Label fx:id="receitaTotalLabel" styleClass="stat-number"/>
+                <Label text="Receita Total" styleClass="stat-label"/>
+                <Label text="sem cancelamentos" styleClass="stat-sublabel"/>
+            </VBox>
+        </HBox>
+
+        <VBox styleClass="card" spacing="10">
+            <Label text="Equipamentos Mais Vendidos" styleClass="section-title" style="-fx-font-size: 13px;"/>
+            <TableView fx:id="tabelaMaisVendidos">
+                <columns>
+                    <TableColumn fx:id="colEquipMV" text="EQUIPAMENTO" prefWidth="320"/>
+                    <TableColumn fx:id="colQtdMV" text="QTD VENDIDA" prefWidth="140"/>
+                    <TableColumn fx:id="colReceitaMV" text="RECEITA" prefWidth="160"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox styleClass="card" spacing="14">
+            <Label text="Detalhamento das Vendas" styleClass="section-title" style="-fx-font-size: 13px;"/>
+            <VBox fx:id="detalhamentoBox" spacing="14"/>
+        </VBox>
+
+    </VBox>
+
+    <!-- ===================== ABA: RELATORIO DE ESTOQUE ===================== -->
+    <VBox fx:id="painelEstoque" spacing="18" visible="false" managed="false">
+
+        <HBox spacing="18">
+            <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS">
+                <Label fx:id="totalItensLabel" styleClass="stat-number"/>
+                <Label text="Total de Itens" styleClass="stat-label"/>
+                <Label text="equipamentos distintos" styleClass="stat-sublabel"/>
+            </VBox>
+            <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS">
+                <Label fx:id="totalUnidadesLabel" styleClass="stat-number"/>
+                <Label text="Total em Estoque" styleClass="stat-label"/>
+                <Label text="unidades" styleClass="stat-sublabel"/>
+            </VBox>
+            <VBox styleClass="card" spacing="6" HBox.hgrow="ALWAYS">
+                <Label fx:id="valorEstoqueLabel" styleClass="stat-number"/>
+                <Label text="Valor do Estoque" styleClass="stat-label"/>
+                <Label text="preço de venda" styleClass="stat-sublabel"/>
+            </VBox>
+        </HBox>
+
+        <VBox styleClass="card" spacing="10">
+            <Label text="Posição do Estoque" styleClass="section-title" style="-fx-font-size: 13px;"/>
+            <TableView fx:id="tabelaEstoque">
+                <columns>
+                    <TableColumn fx:id="colEquip" text="EQUIPAMENTO" prefWidth="190"/>
+                    <TableColumn fx:id="colSerie" text="Nº SÉRIE" prefWidth="120"/>
+                    <TableColumn fx:id="colQtd" text="QTD" prefWidth="60"/>
+                    <TableColumn fx:id="colPrecoUnit" text="PREÇO UNIT." prefWidth="110"/>
+                    <TableColumn fx:id="colValorTotal" text="VALOR TOTAL" prefWidth="110"/>
+                    <TableColumn fx:id="colLocal" text="LOCAL" prefWidth="200"/>
+                    <TableColumn fx:id="colResponsavel" text="RESPONSÁVEL" prefWidth="130"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+    </VBox>
+
+</VBox>

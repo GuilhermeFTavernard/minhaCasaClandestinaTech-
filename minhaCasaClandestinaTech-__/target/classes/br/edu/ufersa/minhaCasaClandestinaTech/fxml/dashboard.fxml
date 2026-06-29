@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="br.edu.ufersa.minhaCasaClandestinaTech.controller.DashboardController"
+      styleClass="view-padding">
+
+    <VBox spacing="2">
+        <Label fx:id="welcomeTitleLabel" styleClass="welcome-title"/>
+        <Label text="Painel de controle do estoque" styleClass="welcome-subtitle"/>
+    </VBox>
+
+    <HBox spacing="18">
+        <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
+            <StackPane styleClass="stat-card-icon, stat-icon-navy" alignment="CENTER">
+                <Label text="💻" styleClass="stat-card-icon-text"/>
+            </StackPane>
+            <Label fx:id="equipCountLabel" styleClass="stat-number"/>
+            <Label text="Equipamentos" styleClass="stat-label"/>
+            <Label fx:id="equipSubLabel" styleClass="stat-sublabel"/>
+        </VBox>
+
+        <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
+            <StackPane styleClass="stat-card-icon, stat-icon-blue" alignment="CENTER">
+                <Label text="📈" styleClass="stat-card-icon-text"/>
+            </StackPane>
+            <Label fx:id="vendasCountLabel" styleClass="stat-number"/>
+            <Label text="Vendas Ativas" styleClass="stat-label"/>
+            <Label fx:id="vendasSubLabel" styleClass="stat-sublabel"/>
+        </VBox>
+
+        <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
+            <StackPane styleClass="stat-card-icon, stat-icon-navy" alignment="CENTER">
+                <Label text="👥" styleClass="stat-card-icon-text"/>
+            </StackPane>
+            <Label fx:id="clientesCountLabel" styleClass="stat-number"/>
+            <Label text="Clientes" styleClass="stat-label"/>
+            <Label fx:id="clientesSubLabel" styleClass="stat-sublabel"/>
+        </VBox>
+
+        <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
+            <StackPane styleClass="stat-card-icon, stat-icon-blue" alignment="CENTER">
+                <Label text="📍" styleClass="stat-card-icon-text"/>
+            </StackPane>
+            <Label fx:id="locaisCountLabel" styleClass="stat-number"/>
+            <Label text="Locais" styleClass="stat-label"/>
+            <Label fx:id="locaisSubLabel" styleClass="stat-sublabel"/>
+        </VBox>
+    </HBox>
+
+    <VBox styleClass="card" spacing="6">
+        <Label text="Últimas Vendas" styleClass="section-title"/>
+        <VBox fx:id="ultimasVendasBox" spacing="0"/>
+    </VBox>
+
+</VBox>

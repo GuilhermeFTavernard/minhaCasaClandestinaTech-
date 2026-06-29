@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="br.edu.ufersa.minhaCasaClandestinaTech.controller.ClienteFormController"
+      styleClass="modal-card" spacing="18">
+
+    <HBox alignment="CENTER_LEFT">
+        <Label fx:id="titleLabel" text="Novo Cliente" styleClass="modal-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="✕" styleClass="modal-close-btn" onAction="#onCancelar"/>
+    </HBox>
+
+    <VBox spacing="5">
+        <Label text="NOME *" styleClass="form-label"/>
+        <TextField fx:id="nomeField" styleClass="text-field"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="CPF *" styleClass="form-label"/>
+        <TextField fx:id="cpfField" styleClass="text-field" promptText="000.000.000-00"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="ENDEREÇO" styleClass="form-label"/>
+        <TextField fx:id="enderecoField" styleClass="text-field"/>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" styleClass="btn-link" onAction="#onCancelar"/>
+        <Button text="✓ Salvar" styleClass="btn-primary" onAction="#onSalvar"/>
+    </HBox>
+
+</VBox>
